@@ -1,0 +1,36 @@
+% SZS status Theorem for hello_world-1
+% SZS output start Proof for hello_world-1
+1. hello(world) => hello(usa) [input]
+2. hello(usa) => hello(illinois) [input]
+3. hello(illinois) => hello(ase) [input]
+4. hello(world) => hello(ase) [input]
+5. ~(hello(world) => hello(ase)) [negated conjecture 4]
+6. hello(usa) | ~hello(world) [ennf transformation 1]
+7. hello(illinois) | ~hello(usa) [ennf transformation 2]
+8. hello(ase) | ~hello(illinois) [ennf transformation 3]
+9. ~hello(ase) & hello(world) [ennf transformation 5]
+10. hello(usa) | ~hello(world) [cnf transformation 6]
+11. hello(illinois) | ~hello(usa) [cnf transformation 7]
+12. hello(ase) | ~hello(illinois) [cnf transformation 8]
+13. hello(world) [cnf transformation 9]
+14. ~hello(ase) [cnf transformation 9]
+16. 1 <=> hello(world) [avatar definition]
+20. 2 <=> hello(usa) [avatar definition]
+23. ~1 | 2 [avatar split clause 10,20,16]
+25. 3 <=> hello(illinois) [avatar definition]
+28. ~2 | 3 [avatar split clause 11,25,20]
+30. 4 <=> hello(ase) [avatar definition]
+33. ~3 | 4 [avatar split clause 12,30,25]
+34. ~4 [avatar split clause 14,30]
+35. 1 [avatar split clause 13,16]
+36. $false [avatar sat refutation 23,28,33,34,35]
+% SZS output end Proof for hello_world-1
+% ------------------------------
+% Version: Vampire 4.5.1 (commit 57a6f78c on 2020-07-15 11:59:04 +0200)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.030 s
+% ------------------------------
+% ------------------------------
+
