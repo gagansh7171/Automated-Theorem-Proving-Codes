@@ -1,0 +1,33 @@
+% SZS status Theorem for hello_world-2
+% SZS output start Proof for hello_world-2
+1. ! [X0,X1] : ((hello(X0) & has_part(X0,X1)) => hello(X1)) [input]
+2. has_part(world,usa) [input]
+3. has_part(usa,illinois) [input]
+4. has_part(illinois,ase) [input]
+5. hello(world) => hello(ase) [input]
+6. ~(hello(world) => hello(ase)) [negated conjecture 5]
+7. ! [X0,X1] : (hello(X1) | (~hello(X0) | ~has_part(X0,X1))) [ennf transformation 1]
+8. ! [X0,X1] : (hello(X1) | ~hello(X0) | ~has_part(X0,X1)) [flattening 7]
+9. ~hello(ase) & hello(world) [ennf transformation 6]
+10. ~has_part(X0,X1) | ~hello(X0) | hello(X1) [cnf transformation 8]
+11. has_part(world,usa) [cnf transformation 2]
+12. has_part(usa,illinois) [cnf transformation 3]
+13. has_part(illinois,ase) [cnf transformation 4]
+14. hello(world) [cnf transformation 9]
+15. ~hello(ase) [cnf transformation 9]
+16. ~hello(world) | hello(usa) [resolution 10,11]
+17. ~hello(usa) | hello(illinois) [resolution 10,12]
+18. ~hello(illinois) | hello(ase) [resolution 10,13]
+19. hello(usa) [subsumption resolution 16,14]
+20. hello(illinois) [subsumption resolution 17,19]
+21. hello(ase) [subsumption resolution 18,20]
+22. $false [subsumption resolution 21,15]
+% SZS output end Proof for hello_world-2
+% ------------------------------
+% Version: Vampire 4.5.1 (commit 57a6f78c on 2020-07-15 11:59:04 +0200)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.020 s
+% ------------------------------
+% ------------------------------
