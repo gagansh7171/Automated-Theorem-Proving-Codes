@@ -1,0 +1,22 @@
+% SZS status Unsatisfiable for one_plus_one
+% SZS output start Proof for one_plus_one
+1. one = succ(zero) [input]
+2. two = succ(one) [input]
+3. plus(zero,X0) = X0 [input]
+4. plus(succ(X0),X1) = succ(plus(X0,X1)) [input]
+5. two != plus(one,one) [input]
+6. succ(plus(zero,X0)) = plus(one,X0) [superposition 4,1]
+8. succ(X0) = plus(one,X0) [forward demodulation 6,3]
+10. two != succ(one) [superposition 5,8]
+11. $false [subsumption resolution 10,2]
+% SZS output end Proof for one_plus_one
+% ------------------------------
+% Version: Vampire 4.5.1 (commit 57a6f78c on 2020-07-15 11:59:04 +0200)
+% Termination reason: Refutation
+
+% Memory used [KB]: 4861
+% Time elapsed: 0.021 s
+% ------------------------------
+% ------------------------------
+
+
